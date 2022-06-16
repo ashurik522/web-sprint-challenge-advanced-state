@@ -9,7 +9,7 @@ export function Form(props) {
   }
 
   const onSubmit = evt => {
-
+    console.log(props)
   }
 
   return (
