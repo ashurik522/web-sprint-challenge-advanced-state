@@ -17,15 +17,15 @@ export function Form(props) {
   
 
   const onSubmit = evt => {
-    enable()
+    trim()
     
   }
 
-  const enable = () =>{
-    form.enterQuestion = form.enterQuestion.trim()
-    form.newTrueAnswer = form.newTrueAnswer.trim()
-    form.newFalseAnswer = form.newFalseAnswer.trim()
-  }
+  const trim = 
+      form.newQuestion.trim(' ').length > 0 && 
+      form.newTrueAnswer.trim(' ').length > 0 &&
+      form.newFalseAnswer.trim(' ').length > 0 
+  
 
   return (
     <form id="form" onSubmit={onSubmit}>
@@ -52,7 +52,7 @@ export function Form(props) {
         placeholder="Enter false answer"  
       />
       <button 
-        disabled={form.newQuestion === "" || form.newTrueAnswer === "" || form.newFalseAnswer === "" ? true : false} 
+        disabled={!trim} 
         id="submitNewQuizBtn">
           Submit new quiz
       </button>
