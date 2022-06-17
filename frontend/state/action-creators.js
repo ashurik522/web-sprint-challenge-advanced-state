@@ -72,12 +72,13 @@ export const postAnswer = (answer) => (dispatch) => {
     // - Dispatch the fetching of the next quiz
    }
 
-export const postQuiz = (newQuestion) => (dispatch) => {
+export const postQuiz =  (newQuestion) => (dispatch) => {
 
     axios.post('http://localhost:9000/api/quiz/new', newQuestion)
       .then(res => {
         console.log(res)
         dispatch(resetForm())
+        dispatch({type: types.SET_INFO_MESSAGE, payload:`Congrats: "${res.data.question}" is a great question!`})
 
       })
       .catch(err => console.error({err}))
