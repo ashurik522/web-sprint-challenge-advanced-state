@@ -16,7 +16,7 @@ function Quiz(props) {
     selectAnswer(id)
   }
   
-  console.log(selectedAnswer)
+  
   return (
     <div id="wrapper">
       {

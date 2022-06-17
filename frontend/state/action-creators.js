@@ -20,7 +20,11 @@ export function selectAnswer(answer_id) {
   }
 }
 
-export function setMessage() { }
+export function setMessage(message) {
+  return {
+    type: types.SET_INFO_MESSAGE, payload: message
+  }
+ }
 
 //export function setQuiz() {}
 
@@ -33,7 +37,6 @@ export function fetchQuiz() {
   return function (dispatch) {
     axios.get('http://localhost:9000/api/quiz/next')
       .then(res => {
-        console.log(res.data)
         dispatch({type: types.SET_QUIZ_INTO_STATE, payload: res.data})
       })
       .catch(err => console.error({err}))
