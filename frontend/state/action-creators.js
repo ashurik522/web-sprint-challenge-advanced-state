@@ -51,6 +51,8 @@ export const postAnswer = (answer) => (dispatch) => {
       .then(res => {
         const message = res.data.message
         dispatch({type: types.SET_INFO_MESSAGE, payload: message})
+        dispatch(selectAnswer(''))
+        dispatch(fetchQuiz())
       })
       .catch(err => console.error({err}))
     // On successful POST:
