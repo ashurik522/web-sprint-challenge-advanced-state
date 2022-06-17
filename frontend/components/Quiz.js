@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import {fetchQuiz, selectAnswer} from '../state/action-creators'
+import {fetchQuiz, selectAnswer, postAnswer} from '../state/action-creators'
 
 
 function Quiz(props) {
 
-  const { quiz, selectedAnswer, selectAnswer, fetchQuiz } = props
+  const { quiz, selectedAnswer, selectAnswer, fetchQuiz, postAnswer } = props
 
   useEffect(()=> {
     fetchQuiz()
@@ -15,6 +15,17 @@ function Quiz(props) {
   const clickHandler = (id) =>{
     selectAnswer(id)
   }
+  
+  const onSubmit = e => {
+    e.preventDefault();
+    const answer = {
+      "quiz_id" : quiz.quiz_id,
+      "answer_id": selectedAnswer
+    }
+    postAnswer(answer)
+    
+  }
+  
   
   
   return (
@@ -40,7 +51,7 @@ function Quiz(props) {
               </div>
             </div>
 
-            <button disabled={!selectedAnswer} id="submitAnswerBtn">Submit answer</button>
+            <button disabled={!selectedAnswer} onClick={onSubmit} id="submitAnswerBtn">Submit answer</button>
           </>
         ) : 'Loading next quiz...'
       }
@@ -49,4 +60,4 @@ function Quiz(props) {
 }
 
 
-export default connect(st=>st, {fetchQuiz, selectAnswer})(Quiz)
+export default connect(st=>st, {fetchQuiz, selectAnswer, postAnswer})(Quiz)
