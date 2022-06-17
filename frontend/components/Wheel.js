@@ -3,16 +3,19 @@ import { connect } from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
 
 
-const clockwiseClick = () => {
 
-}
-
-const counterClockwiseClick = () => {
-
-}
 
 function Wheel(props) {
+
   console.log(props)
+  const clockwiseClick = () => {
+    props.moveClockwise()
+  }
+  
+  const counterClockwiseClick = () => {
+    props.moveCounterClockwise()
+  }
+
   return (
     <div id="wrapper">
       <div id="wheel">
