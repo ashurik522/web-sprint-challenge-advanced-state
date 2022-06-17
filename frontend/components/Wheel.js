@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
-import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
-
+import { moveClockwise, moveCounterClockwise, fetchQuiz } from '../state/action-creators'
 
 
 
 function Wheel(props) {
+  
   const clockwiseClick = () => {
     props.moveClockwise()
   }

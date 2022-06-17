@@ -26,9 +26,15 @@ export function setMessage(message) {
   }
  }
 
-//export function setQuiz() {}
+export function setQuiz() {
+  
+}
 
-export function inputChange() { }
+export function inputChange(input) { 
+  return {
+    type: types.INPUT_CHANGE, payload:input
+  }
+}
 
 export function resetForm() { }
 

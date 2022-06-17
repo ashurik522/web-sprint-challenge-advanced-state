@@ -4,12 +4,14 @@ import * as actionCreators from '../state/action-creators'
 
 export function Form(props) {
 
+  const { form } = props
+  console.log(form)
   const onChange = evt => {
 
   }
 
   const onSubmit = evt => {
-    console.log(props)
+    
   }
 
   return (

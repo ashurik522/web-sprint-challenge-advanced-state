@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import {fetchQuiz, selectAnswer, postAnswer} from '../state/action-creators'
+
+
 
 
 function Quiz(props) {
 
   const { quiz, selectedAnswer, selectAnswer, fetchQuiz, postAnswer } = props
 
-  useEffect(()=> {
+  if(!quiz){
     fetchQuiz()
-  },[])
+  }
 
 
   const clickHandler = (id) =>{
@@ -22,11 +24,8 @@ function Quiz(props) {
       "quiz_id" : quiz.quiz_id,
       "answer_id": selectedAnswer
     }
-    postAnswer(answer)
-    
+    postAnswer(answer) 
   }
-  
-  
   
   return (
     <div id="wrapper">

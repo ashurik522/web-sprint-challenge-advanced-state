@@ -25,6 +25,8 @@ function quiz(state = initialQuizState, action) {
   }
 }
 
+
+
 const initialSelectedAnswerState = null
 function selectedAnswer(state = initialSelectedAnswerState, action) {
   switch(action.type){
