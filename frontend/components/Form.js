@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import * as actionCreators from '../state/action-creators'
-import { inputChange } from '../state/action-creators';
+import { inputChange, postQuiz } from '../state/action-creators';
 
 export function Form(props) {
 
-  const { form ,inputChange} = props
+  const { form, inputChange, postQuiz } = props
  
 
   const onChange = evt => {
@@ -17,8 +17,13 @@ export function Form(props) {
   
 
   const onSubmit = evt => {
-    trim()
-    
+    evt.preventDefault()
+    const newQuestion = {
+      "question_text": form.newQuestion,
+      "true_answer_text": form.newTrueAnswer,
+      "false_answer_text": form.newFalseAnswer
+    }
+    postQuiz(newQuestion)
   }
 
   const trim = 
@@ -60,4 +65,4 @@ export function Form(props) {
   )
 }
 
-export default connect(st => st, actionCreators)(Form)
+export default connect(st => st, {inputChange, postQuiz})(Form)
