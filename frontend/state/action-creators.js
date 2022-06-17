@@ -30,9 +30,9 @@ export function setQuiz() {
   
 }
 
-export function inputChange(input) { 
+export function inputChange(question) { 
   return {
-    type: types.INPUT_CHANGE, payload:input
+    type: types.INPUT_CHANGE, payload: question
   }
 }
 
