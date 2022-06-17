@@ -14,15 +14,15 @@ export function moveCounterClockwise() {
   }
 }
 
-export function selectAnswer() { }
+export function selectAnswer(answer_id) { 
+  return {
+    type: types.SET_SELECTED_ANSWER, payload: answer_id
+  }
+}
 
 export function setMessage() { }
 
-// export function setQuiz() { 
-//   return {
-//     ({type: types.SET_QUIZ_INTO_STATE})
-//   }
-// }
+//export function setQuiz() {}
 
 export function inputChange() { }
 
